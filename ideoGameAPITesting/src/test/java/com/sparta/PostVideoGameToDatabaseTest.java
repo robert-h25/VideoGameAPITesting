@@ -25,7 +25,7 @@ public class PostVideoGameToDatabaseTest {
     @Test
     @DisplayName("Post video game that exists in the video database Version 2")
     public void postVideoGameThatExistsInDatabase_V1(){
-        Response response = Utils.createVideoGame_AndPostToDatabase_v1(1, "Shooter", "Resident Evil 4", "Universal", "2005-10-01 23:59:59 ",
+        Response response = Utils.createVideoGame_AndPostToDatabase_v1(1, "Shooter", "Resident Evil 4", "Universal", "2005-10-01 23:59:59",
                 85
         );
         MatcherAssert.assertThat(response.getStatusCode(), Matchers.equalTo(400));
