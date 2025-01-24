@@ -5,7 +5,6 @@ import io.restassured.response.Response;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +21,8 @@ public class TestDELETECommandsWithFirstController {
         return RestAssured
                 .given(Utils.requestSpecificationWithID(id))
                 .when()
-                .log().all()
-                .delete()
+                    .log().all()
+                    .delete()
                 .then()
                 .log().all()
                 .extract().response();

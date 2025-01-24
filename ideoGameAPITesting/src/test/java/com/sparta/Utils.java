@@ -5,8 +5,6 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 
@@ -22,6 +20,33 @@ public class Utils {
 
     static int id;
 
+
+
+    static void getBearerToken() {
+        Response response = RestAssured
+                .given(getAuthenticatedRequest())
+                .when()
+                .post()
+                .then()
+                .assertThat().statusCode(200)
+                .log().all()
+                .extract().response();
+
+        BEARER_TOKEN = "Bearer " + response.jsonPath().getString("token");
+
+    }
+
+    private static RequestSpecification getAuthenticatedRequest() {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH_TO_AUTHENTICATE)
+                .setContentType("application/json")
+                .setBody("{\n" +
+                        "  \"password\": \"admin\",\n" +
+                        "  \"username\": \"admin\"\n" +
+                        "}")
+                .build();
+    }
 
     private static RequestSpecBuilder getBaseSpecBuilder() {
         return new RequestSpecBuilder()
@@ -43,19 +68,41 @@ public class Utils {
     }
 
 
-    static RequestSpecification requestSpecification(Integer id,String body) {
-        return getBaseSpecBuilder()
-
+//    static RequestSpecification requestSpecificationWithIdAndBody(Integer id, String body) {
+//        return getBaseSpecBuilder()
+//
+//                .setContentType(ContentType.JSON)
+//                .build();
+//    };
+    static RequestSpecification requestSpecificationWithIdAndBody(Integer id) {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH_TO_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/json",
+                        "Authorization",BEARER_TOKEN
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
                 .setContentType(ContentType.JSON)
+                .setBody(CORRECT_BODY)
                 .build();
-    };
-    static RequestSpecification requestSpecificationID(Integer id,String body) {
+    }
+
+    static RequestSpecification requestSpecificationWithIdAndIncorrectBody(Integer id) {
         return getBaseSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH_TO_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/json",
+                        "Authorization",BEARER_TOKEN
+                ))
                 .addPathParams(Map.of(
                         "id",id
                 ))
                 .setContentType(ContentType.JSON)
-                .setBody( body )
+                .setBody( "" )
                 .build();
     };
 
