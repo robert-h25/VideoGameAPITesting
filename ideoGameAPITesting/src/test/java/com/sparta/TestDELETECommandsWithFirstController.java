@@ -30,6 +30,7 @@ public class TestDELETECommandsWithFirstController {
 
     @BeforeAll
     static void setUp() {
+        Utils.getBearerToken();
         ids = new ArrayList<>();
         ids.add(1);
         ids.add(11);

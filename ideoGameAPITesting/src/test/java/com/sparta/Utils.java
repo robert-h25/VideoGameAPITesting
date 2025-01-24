@@ -1,6 +1,7 @@
 package com.sparta;
 
 import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
@@ -11,13 +12,27 @@ import java.util.Map;
 public class Utils {
     private static final String BASE_URI = "https://videogamedb.uk:443/api";
     private static final String BASE_PATH_TO_VIDEOGAME = "/videogame";
+    private static final String BASE_PATH_TO_AUTHENTICATE = "/authenticate";
     private static final String BASE_PATH_TO_VIDEOGAME_ID = "/videogame/{id}";
     private static final String BASE_PATH_WITH_V2_VIDEOGAME = "/v2/videogame";
     private static final String BASE_PATH_WITH_V2_VIDEOGAME_ID = "/v2/videogame/{id}";
 
-    private static final String BEARER_TOKEN =
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTczNzcyODUzMCwiZXhwIjoxNzM3NzMyMTMwfQ.oL2RLBDwo-9I0Vqz9LKjIFMa7OSAWu9eoH82MFKQL-4";
+    private static final String CORRECT_BODY = "{\n" +
+            "  \"category\": \"Platform\",\n" +
+            "  \"name\": \"Mario\",\n" +
+            "  \"rating\": \"Mature\",\n" +
+            "  \"releaseDate\": \"2012-05-04\",\n" +
+            "  \"reviewScore\": 85\n" +
+            "}";
+    private static final String INCORRECT_BODY = "{\n" +
+            "  \"category\": \"Platform\",\n" +
+            "  \"name\": \"Mario2\",\n" +
+            "  \"rating\": \"Mature\",\n" +
+            "  \"releaseDate\": \"2012-05-04\",\n" +
+            "  \"reviewScore\": 85\n" +
+            "}";
 
+    private static String BEARER_TOKEN;
     static int id;
 
 
@@ -104,7 +119,51 @@ public class Utils {
                 .setContentType(ContentType.JSON)
                 .setBody( "" )
                 .build();
+    }
+
+
+
+
+    static RequestSpecification requestSpecificationIDNoBody(Integer id) {
+        return getBaseSpecBuilderWithPath(BASE_PATH_TO_VIDEOGAME_ID,id)
+//                .setBasePath(POST_COMMENT_VIDEOGAME_ID)
+
+                .setContentType(ContentType.JSON)
+                .build();
     };
+
+
+    static RequestSpecification requestSpecificationWithID(Integer id) {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH_TO_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/json",
+                        "Authorization",BEARER_TOKEN
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
+                .build();
+
+    }
+
+    static RequestSpecification requestSpecificationWithIDForSecondController(Integer id) {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH_WITH_V2_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "text/plain",
+                        "Authorization",BEARER_TOKEN
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
+                .build();
+
+    }
+
+
 
 
 }
