@@ -11,15 +11,11 @@ Feature: Get All Video Games In a List
     Then I should receive a list of video games in a list
     And I get 200 status code
 
-#  @Sad
-#  Scenario: Using an Unsupported HTTP Method
-#    Given The API endpoint videogame is available.
-#    When I send a POST HTTP request to the videogame endpoint.
-#    Then I should receive a 405 Method Not Allowed status code.
-#    And The response message should indicate that the POST method is not supported for this endpoint.
-#  @Sad
-#  Scenario
-#    Given The server is down
-#    When When I send a GET HTTP request to the API videogame
-#    Then Then the API responds with a 500 Internal Server Error
-#    And The response body contains an error message
+  @Sad
+  Scenario: Using an Unsupported HTTP Method
+    Given The accepted HTTP method is GET
+    When I send a POST HTTP request to the videogame endpoint.
+    Then I should receive a 405 Method Not Allowed status code.
+    And Response  should indicate that the POST method is not supported.
+
+  @Sad
