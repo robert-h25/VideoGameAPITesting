@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1213eb37-526f-464d-93bf-b87e57ffa189" name="Changes" comment="" />
+    <list id="a29e85ff-e2a2-4731-a2e2-3c8c647b354d" name="Changes by david" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.GetVideoGameWithIdTest.GetVideoGameFromVideoGameDatabase.executor": "Run",
+    "JUnit.GetVideoGameWithIdTest.GetVideoGame_withId_fromVideoGameDatabase_v1.executor": "Run",
+    "JUnit.GetVideoGameWithIdTest.GetVideoGame_withInvalidId_fromVideoGameDatabase.executor": "Run",
+    "JUnit.GetVideoGameWithIdV2Test.executor": "Run",
+    "JUnit.PostVideoGameToDatabaseTest.executor": "Debug",
+    "last_opened_file_path": "C:/Users/Ibrahim Ahmad/Documents/Junior Role/Mini-Project_v2/VideoGameAPITesting/ideoGameAPITesting",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.sparta" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.PostVideoGameToDatabaseTest">
+    <configuration name="GetVideoGameWithIdTest.GetVideoGameFromVideoGameDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ideoGameAPITesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.GetVideoGameWithIdTest" />
+      <option name="METHOD_NAME" value="GetVideoGameFromVideoGameDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetVideoGameWithIdTest.GetVideoGame_withId_fromVideoGameDatabase_v1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ideoGameAPITesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.GetVideoGameWithIdTest" />
+      <option name="METHOD_NAME" value="GetVideoGame_withId_fromVideoGameDatabase_v1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetVideoGameWithIdTest.GetVideoGame_withInvalidId_fromVideoGameDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ideoGameAPITesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.GetVideoGameWithIdTest" />
+      <option name="METHOD_NAME" value="GetVideoGame_withInvalidId_fromVideoGameDatabase" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetVideoGameWithIdV2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ideoGameAPITesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.GetVideoGameWithIdV2Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostVideoGameToDatabaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ideoGameAPITesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sparta.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sparta" />
+      <option name="MAIN_CLASS_NAME" value="com.sparta.PostVideoGameToDatabaseTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.PostVideoGameToDatabaseTest" />
+        <item itemvalue="JUnit.GetVideoGameWithIdTest.GetVideoGame_withId_fromVideoGameDatabase_v1" />
+        <item itemvalue="JUnit.GetVideoGameWithIdV2Test" />
+        <item itemvalue="JUnit.GetVideoGameWithIdTest.GetVideoGame_withInvalidId_fromVideoGameDatabase" />
+        <item itemvalue="JUnit.GetVideoGameWithIdTest.GetVideoGameFromVideoGameDatabase" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
