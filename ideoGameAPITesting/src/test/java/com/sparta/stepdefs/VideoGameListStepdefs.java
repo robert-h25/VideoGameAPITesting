@@ -6,10 +6,12 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.Map;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class VideoGameListV1Stepdefs {
+public class VideoGameListStepdefs {
     Response response;
     RequestSpecification request;
 
@@ -38,6 +40,20 @@ public class VideoGameListV1Stepdefs {
     @And("I get 200 status code")
     public void i_get_200_status_code() {
         assertThat("Status code should be 200", response.getStatusCode(), is(200));
+    }
+
+
+    @And("the response body should contain a list of video games with attributes")
+    public void theResponseBodyShouldContainAListOfVideoGamesWithAttributes() {
+        // Verify each game object contains expected attributes
+        response.jsonPath().getList("$").forEach(game -> {
+            assertThat("Game should have an id", ((Map<?, ?>) game).get("id"), is(notNullValue()));
+            assertThat("Game should have a name", ((Map<?, ?>) game).get("name"), is(notNullValue()));
+            assertThat("Game should have a releaseDate", ((Map<?, ?>) game).get("releaseDate"), is(notNullValue()));
+            assertThat("Game should have a reviewScore", ((Map<?, ?>) game).get("reviewScore"), is(notNullValue()));
+            assertThat("Game should have a category", ((Map<?, ?>) game).get("category"), is(notNullValue()));
+            assertThat("Game should have a rating", ((Map<?, ?>) game).get("rating"), is(notNullValue()));
+        });
     }
 
 }

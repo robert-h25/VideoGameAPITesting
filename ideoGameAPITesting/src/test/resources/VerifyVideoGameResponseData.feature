@@ -5,7 +5,7 @@ Feature:
 
   @Happy
   Scenario: The API provides complete game details.
-    Given the database contains detailed game records,
-    When the user sends a GET request to /api/videogame,
-    Then the API responds with a 200 OK status,
-    And the response body includes fields:  id, name, category, rating, releaseDate, and reviewScore.
+    Given The API end-point videogame
+    When I send GET HTTP request to API videogame
+    Then I should receive a list of video games in a list
+    And the response body should contain a list of video games with attributes

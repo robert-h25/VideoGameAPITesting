@@ -8,13 +8,7 @@ Feature:
     When I send a GET request to the endpoint
     Then I should receive a 200 status code
     And the response content type should be "application/json"
-    And the response body should contain a list of video games with attributes:
-      | key | value |
-      | id | (an integer) |
-      | title | (a string) |
-      | release_date | (a valid date format) |
-      | genre | (a string) |
-      | platform | (a string) |
+    And the response body should contain a list of video games with attributes
     And the response should include at least one video game
 
   Scenario: Getting a list of videogames as XML
