@@ -51,7 +51,7 @@ public class Utils {
 
     }
 
-    private static RequestSpecification getAuthenticatedRequest() {
+     static RequestSpecification getAuthenticatedRequest() {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
                 .setBasePath(BASE_PATH_TO_AUTHENTICATE)
