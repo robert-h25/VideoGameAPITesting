@@ -3,19 +3,23 @@ package com.sparta.stepdefs;
 import com.sparta.Utils;
 import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
+import io.restassured.path.xml.XmlPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VideoGameListStepdefs {
     Response response;
     RequestSpecification request;
 
-    @Given("The API end-point videogame")
+    @Given("I have built a request with a JSON header")
     public void the_api_end_point_videogame() {
         request = Utils.getVideoGameList();
     }
@@ -56,5 +60,65 @@ public class VideoGameListStepdefs {
         });
     }
 
+
+    @Given("The API end-point api v2 videogame")
+    public void theAPIEndPointApiVVideogame() {
+        request = Utils.getVideoGameListV2();
+    }
+
+    @And("the response content type should be application json")
+    public void theResponseContentTypeShouldBeApplicationJson() {
+        String contentType = response.getHeader("Content-Type");
+        assertThat("Content-Type should be application/json", contentType, is("application/json"));
+    }
+
+    @And("the response body should contain a list of video games as XML with elements")
+    public void theResponseBodyShouldContainAListOfVideoGamesAsXMLWithElements() {
+        // Fetch the XML response body
+        String responseBody = response.getBody().asString();
+
+        // Parse the XML using RestAssured's XMLPath
+        XmlPath xmlPath = new XmlPath(responseBody);
+
+        // Get a list of all item elements
+        List<String> items = xmlPath.getList("List.item");
+
+        // Assert that the list is not empty
+        assertTrue(items.size() > 0, "The list of video games should not be empty.");
+
+        for (int i = 0; i < items.size(); i++) {
+            // Validate each element inside <item>
+            String id = xmlPath.getString("List.item[" + i + "].id");
+            String name = xmlPath.getString("List.item[" + i + "].name");
+            String releaseDate = xmlPath.getString("List.item[" + i + "].releaseDate");
+            String reviewScore = xmlPath.getString("List.item[" + i + "].reviewScore");
+            String rating = xmlPath.getString("List.item[" + i + "].rating");
+
+            // Validate category attribute
+            String category = xmlPath.getString("List.item[" + i + "].@category");
+
+            // Assertions to ensure all fields exist
+            assertNotNull(id, "Item at index " + i + " is missing the 'id' element.");
+            assertNotNull(name, "Item at index " + i + " is missing the 'name' element.");
+            assertNotNull(releaseDate, "Item at index " + i + " is missing the 'releaseDate' element.");
+            assertNotNull(reviewScore, "Item at index " + i + " is missing the 'reviewScore' element.");
+            assertNotNull(rating, "Item at index " + i + " is missing the 'rating' element.");
+            assertNotNull(category, "Item at index " + i + " is missing the 'category' attribute.");
+        }
+    }
+
+
+
+
+    @And("the response content type should be application xml")
+    public void theResponseContentTypeShouldBeApplicationXml() {
+        String contentType = response.getHeader("Content-Type");
+        assertThat("Content-Type should be application/xml", contentType, is("application/xml"));
+    }
+
+    @Given("I have built a request with a XML header")
+    public void iHaveBuiltARequestWithAXMLHeader() {
+        request = Utils.getVideoGameListXML();
+    }
 }
 

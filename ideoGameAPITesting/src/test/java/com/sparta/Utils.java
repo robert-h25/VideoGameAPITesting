@@ -20,6 +20,15 @@ public class Utils {
                         "Accept", "application/json"
                 ));
     }
+
+    private static RequestSpecBuilder getBaseSpecBuilderXML() {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URL)
+                .addHeaders(Map.of(
+                        "Accept", "application/xml"
+                ));
+    }
+
     public static RequestSpecification requestSpecification() {
         return getBaseSpecBuilder()
                 .setContentType(ContentType.JSON)
@@ -37,6 +46,14 @@ public class Utils {
 
     public static RequestSpecification getVideoGameList() {
         return getBaseSpecBuilder().setBasePath(BASE_PATH_TO_VIDEOGAME).build();
+    }
+
+    public static RequestSpecification getVideoGameListV2() {
+        return getBaseSpecBuilder().setBasePath(BASE_PATH_WITH_V2_VIDEOGAME).build();
+    }
+
+    public static RequestSpecification getVideoGameListXML() {
+        return getBaseSpecBuilderXML().setBasePath(BASE_PATH_WITH_V2_VIDEOGAME).build();
     }
 
 
