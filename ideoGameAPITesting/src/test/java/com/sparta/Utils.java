@@ -63,6 +63,18 @@ public class Utils {
                 .build();
     }
 
+    static RequestSpecification getAuthenticatedRequestWrongBody() {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URI)
+                .setBasePath(BASE_PATH_TO_AUTHENTICATE)
+                .setContentType("application/json")
+                .setBody("{\n" +
+                        "  \"password\": \"ssss\",\n" +
+                        "  \"username\": \"ssss\"\n" +
+                        "}")
+                .build();
+    }
+
     private static RequestSpecBuilder getBaseSpecBuilder() {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)

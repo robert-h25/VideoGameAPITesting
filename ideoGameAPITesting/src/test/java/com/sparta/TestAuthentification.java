@@ -32,6 +32,18 @@ public class TestAuthentification {
     }
 
 
+    // Defect - should be 400 but returns 403
+    @Test
+    @DisplayName("Status code 400")
+    public void statusCode400() {
+        MatcherAssert.assertThat(
+                RestAssured.given(Utils.getAuthenticatedRequestWrongBody())
+                        .when().log().all()
+                        .post()
+                        .then().extract().response().statusCode()
+                , Matchers.is(400));
+    }
+
 
 
 }
