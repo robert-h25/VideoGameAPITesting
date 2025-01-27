@@ -8,6 +8,11 @@ import org.junit.jupiter.api.Test;
 
 public class PostVideoGameToDatabaseTest {
 
+    @BeforeAll
+    static void beforeAll() {
+        Utils.getBearerToken();
+    }
+
     @Test
     @DisplayName("Post Video Game to Video Game Database Version 1")
     public void postVideoGameToDatabase_v1() {
