@@ -124,12 +124,12 @@ As a user, I would like to DELETE a video game with the second controller
 The breakdown of these epics into user stories was done on the [project board](https://github.com/users/robert-h25/projects/2).
 ## Test Metrics
 
-The User functionality has been broken down into 11 Epics, each containing user stories of both Happy and Sad paths. 100% of user stories are covered by automated tests, of which 19/23 passed (82%) with a runtime of 6.15 seconds. The tests which failed we identified to be defects.
+The User functionality has been broken down into 11 Epics, each containing user stories of both Happy and Sad paths. 100% of user stories are covered by automated tests, of which 19/23 (82%) passed with a runtime of 6.15 seconds. The tests which failed we identified to be defects.
 
 ### Defects
 We located 2 defects:<br>
-[DF-1](https://github.com/users/robert-h25/projects/2/views/1?pane=issue&itemId=95101436&issue=robert-h25%7CVideoGameAPITesting%7C14) - Failing to check if a video game exists in the database  
-[DF-2](https://github.com/users/robert-h25/projects/2/views/1?pane=issue&itemId=95105855&issue=robert-h25%7CVideoGameAPITesting%7C15) - Status code return when username or password is wrong should be 400 but is 403
+[Defect-1](https://github.com/users/robert-h25/projects/2/views/1?pane=issue&itemId=95101436&issue=robert-h25%7CVideoGameAPITesting%7C14) - Failing to check if a video game exists in the database  
+[Defect-2](https://github.com/users/robert-h25/projects/2/views/1?pane=issue&itemId=95105855&issue=robert-h25%7CVideoGameAPITesting%7C15) - Status code return when username or password is wrong should be 400 but is 403
 
 ## Acknowledgements
 This project was created by:
