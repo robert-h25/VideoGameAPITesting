@@ -8,8 +8,8 @@ import io.restassured.http.ContentType;
 
 import java.util.Map;
 
-
 public class Utils {
+
     private static final String BASE_URL = "https://videogamedb.uk:443/api";
     private static final String BASE_PATH_WITH_V1_VIDEOGAME_ID = "/videogame/{id}";
     private static final String POST_PATH_WITH_VIDEOGAME = "/videogame";
@@ -109,6 +109,14 @@ public class Utils {
                         "Accept", "application/json"
                 ));
     }
+    private static RequestSpecBuilder getBaseSpecBuilderXML() {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URL)
+                .addHeaders(Map.of(
+                        "Accept", "application/xml"
+                ));
+    }
+
 
     private static RequestSpecBuilder getBaseSpecBuilderWithPath(String path, Integer id) {
         return new RequestSpecBuilder()
@@ -187,6 +195,16 @@ public class Utils {
 
     }
 
+    public static RequestSpecification requestSpecificationID(Integer id,String body) {
+        return getBaseSpecBuilder()
+                .addPathParams(Map.of(
+                        "id",id
+                ))
+                .setContentType(ContentType.JSON)
+                .setBody( body )
+                .build();
+    }
+
     static RequestSpecification requestSpecificationWithIDForSecondController(Integer id) {
         return new RequestSpecBuilder()
                 .setBaseUri(BASE_URI)
@@ -256,5 +274,42 @@ public class Utils {
                             .assertThat().statusCode(200)
                             .extract().response();
         return response;
+    }
+    public static RequestSpecification getVideoGameList() {
+        return getBaseSpecBuilder().setBasePath(POST_PATH_WITH_VIDEOGAME).build();
+    }
+
+    public static RequestSpecification getVideoGameListV2() {
+        return getBaseSpecBuilder().setBasePath(POST_PATH_WITH_V2_VIDEOGAME).build();
+    }
+
+    public static RequestSpecification getVideoGameListXML() {
+        return getBaseSpecBuilderXML().setBasePath(POST_PATH_WITH_V2_VIDEOGAME).build();
+    }
+
+    public static RequestSpecification getVideoGame_WithId_json(int id){
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URL)
+                .setBasePath(BASE_PATH_WITH_V2_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/json"
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
+                .build();
+    }
+
+    public static RequestSpecification getVideoGame_WithId_xml(int id) {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URL)
+                .setBasePath(BASE_PATH_WITH_V2_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/xml"
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
+                .build();
     }
 }
