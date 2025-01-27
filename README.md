@@ -4,8 +4,14 @@
 The VideoGameAPITesting project focuses on testing a fictional [Video Game Database](https://videogamedb.uk/swagger-ui/index.html) API using advanced tools and frameworks like RestAssured, Cucumber, and Hamcrest. The API provides endpoints for managing video game records, including authentication, fetching game details, and performing CRUD operations.
 
 ## Using Git
+During the project, our group decided to use Git in a collaborative environment. We split our group of 6 into 3 pairs so that we could utilise pair-programming. We gave each pair of our squad their own branch which were pulled, and pushed from the main branch. This Approach was found to be effective due to the small member of merge conflicts, while we were developing test cases independent from one another.
 
 ### Our branches
+![image](https://github.com/user-attachments/assets/a4f1c601-def4-445e-8eba-9f18ea8c1b88)
+
+When delegating tasks, we discussed what each pair was to do in the next hour. After this hour, we discussed progress and what could be developed next. With everyone having their own branch, we could see progress on our local machines.
+
+This project also used git commits and merging. The use of commits allowed everyone to see what progress was made to what code, while the use of merging allowed components to be integrated with one another. At the end of this project, all branches were able to merged into main-test, with a small number of conflicts which we solved as a team. After all conflicts were solved, main-test was pushed to main, to avoid a potential rollback.
 
 ## Features
 List of features:
