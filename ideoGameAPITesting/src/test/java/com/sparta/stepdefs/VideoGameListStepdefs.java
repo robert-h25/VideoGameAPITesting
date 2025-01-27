@@ -108,8 +108,6 @@ public class VideoGameListStepdefs {
     }
 
 
-
-
     @And("the response content type should be application xml")
     public void theResponseContentTypeShouldBeApplicationXml() {
         String contentType = response.getHeader("Content-Type");
@@ -120,5 +118,14 @@ public class VideoGameListStepdefs {
     public void iHaveBuiltARequestWithAXMLHeader() {
         request = Utils.getVideoGameListXML();
     }
+
+
+    @Given("The API end-point videogame")
+    public void theAPIEndPointVideogame() {
+    }
 }
+
+
+
+
 

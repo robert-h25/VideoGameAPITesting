@@ -56,5 +56,29 @@ public class Utils {
         return getBaseSpecBuilderXML().setBasePath(BASE_PATH_WITH_V2_VIDEOGAME).build();
     }
 
+    public static RequestSpecification getVideoGame_WithId_json(int id){
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URL)
+                .setBasePath(BASE_PATH_WITH_V2_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/json"
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
+                .build();
+    }
 
+    public static RequestSpecification getVideoGame_WithId_xml(int id) {
+        return new RequestSpecBuilder()
+                .setBaseUri(BASE_URL)
+                .setBasePath(BASE_PATH_WITH_V2_VIDEOGAME_ID)
+                .addHeaders(Map.of(
+                        "Accept", "application/xml"
+                ))
+                .addPathParams(Map.of(
+                        "id", id
+                ))
+                .build();
+    }
 }
