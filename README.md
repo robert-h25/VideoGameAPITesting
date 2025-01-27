@@ -1,7 +1,7 @@
 # VideoGameAPITesting
-The VideoGameAPITesting project focuses on testing a fictional Video Game Database API using advanced tools and frameworks like RestAssured, Cucumber, and Hamcrest. The API provides endpoints for managing video game records, including authentication, fetching game details, and performing CRUD operations.
 
 ## Description
+The VideoGameAPITesting project focuses on testing a fictional Video Game Database API using advanced tools and frameworks like RestAssured, Cucumber, and Hamcrest. The API provides endpoints for managing video game records, including authentication, fetching game details, and performing CRUD operations.
 
 ## Using Git
 
