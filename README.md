@@ -56,7 +56,48 @@ VideoGameAPITesting
     └─README.md  
 ```
 ## What was Tested?
+In this project we found an number of testing areas (Epics) which we derived user stories from. The user Epics identifeied were:
+### Authentication
 
+ES-1
+As a user, I want to be able to POST with a password and username  and get a status code 200 or 400 for invalid input.
+ 
+### Api-video-games-controller
+ 
+ES-2 
+As a user, I would like to be able to GET a list of all the videogames on the website with the first controller
+ 
+ES-3 
+As a user, I would like to POST a video game
+ 
+ES-4
+As a user, I would like to GET a videogame based on id with the first controller
+ 
+ES-5
+As a user, I would like to PUT a video game with the first controller
+ 
+ES-6
+As a user, I would like to DELETE a video game with the first controller
+ 
+### Api-video-games-controller-v-2
+ 
+ES-7
+As a user, I would like to be able to GET a list of all the videogames on the website with the second controller
+ 
+ES-8 
+As a user, I would like to POST a video game with the second controller
+ 
+ES-9
+As a user, I would like to GET a videogame based on id with the second controller
+ 
+ES-10
+As a user, I would like to PUT a video game with the second controller
+ 
+ 
+ES-11
+As a user, I would like to DELETE a video game with the second controller
+
+The breakdown of these epics into user stories was done on the [project board](https://github.com/users/robert-h25/projects/2).
 ## Test Metrics
 
 ## Defects
