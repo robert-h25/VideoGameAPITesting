@@ -219,7 +219,7 @@ public class Utils {
                 .build();
     };
 
-    static RequestSpecification postVideoGame_v1(PostVideoGameRequestBody requestBody) {
+    static RequestSpecification postVideoGame_v1(PostVideoGameRequestBodyTest requestBody) {
         return new RequestSpecBuilder()
                 //TODO: May need to include bearer token
                 .addHeaders(Map.of(
@@ -235,7 +235,7 @@ public class Utils {
                 .build();
     }
 
-    static RequestSpecification postVideoGame_v2(PostVideoGameRequestBody requestBody) {
+    static RequestSpecification postVideoGame_v2(PostVideoGameRequestBodyTest requestBody) {
         return new RequestSpecBuilder()
                 //TODO: May need to include bearer token
                 .addHeaders(Map.of(
@@ -253,7 +253,7 @@ public class Utils {
     static Response createVideoGame_AndPostToDatabase_v1(int id, String category, String name, String rating, String releaseDate, int reviewScore) {
         Response response =
                 RestAssured
-                        .given(postVideoGame_v1(new PostVideoGameRequestBody(id, category, name, rating, releaseDate, reviewScore)))
+                        .given(postVideoGame_v1(new PostVideoGameRequestBodyTest(id, category, name, rating, releaseDate, reviewScore)))
                         .when()
                         .post()
                         .then()
@@ -266,7 +266,7 @@ public class Utils {
     static Response createVideoGame_AndPostToDatabase_v2(int id, String category, String name, String rating, String releaseDate, int reviewScore) {
         Response response =
                 RestAssured
-                        .given(postVideoGame_v2(new PostVideoGameRequestBody(id, category, name, rating, releaseDate, reviewScore)))
+                        .given(postVideoGame_v2(new PostVideoGameRequestBodyTest(id, category, name, rating, releaseDate, reviewScore)))
                         .when()
                             .post()
                         .then()

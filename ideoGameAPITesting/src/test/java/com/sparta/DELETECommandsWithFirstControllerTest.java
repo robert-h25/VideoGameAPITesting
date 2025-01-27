@@ -11,31 +11,18 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestPUTCommandsWithFirstController {
+public class DELETECommandsWithFirstControllerTest {
 
     static Response response;
 
     private static List<Integer> ids;
 
-
     static Response makeResponse(Integer id) {
         return RestAssured
-                .given(Utils.requestSpecificationWithIdAndBody(id))
+                .given(Utils.requestSpecificationWithID(id))
                 .when()
-                .log().all()
-                .put()
-                .then()
-                .log().all()
-                .extract().response();
-    }
-
-    static Response makeBadResponse(int id) {
-
-        return RestAssured
-                .given(Utils.requestSpecificationWithIdAndIncorrectBody(id))
-                .when()
-                .log().all()
-                .put()
+                    .log().all()
+                    .delete()
                 .then()
                 .log().all()
                 .extract().response();
@@ -57,19 +44,19 @@ public class TestPUTCommandsWithFirstController {
     }
 
     @Test
-    @DisplayName("Sad Path: Test returned status code 400")
-    void getStatusCode400() {
-        response = makeBadResponse(ids.get(0));
-        MatcherAssert.assertThat(response.getStatusCode(), Matchers.is(400));
+    @DisplayName("Sad Path: Test returned status code 404")
+    void getStatusCode404() {
+        response = makeResponse(ids.get(1));
+        MatcherAssert.assertThat(response.getStatusCode(), Matchers.is(404));
     }
 
     @Test
-    @DisplayName("Sad Path: Test returned status code 404")
-    void getStatusCode404() {
+    @DisplayName("Test for response body")
+    void testResponseBody(){
+        response = makeResponse(ids.get(0));
+        String responseBody = response.getBody().asString();
 
-
-        response = makeResponse(ids.get(1));
-        MatcherAssert.assertThat(response.getStatusCode(), Matchers.is(404));
+       MatcherAssert.assertThat(responseBody, Matchers.is( "Video game deleted")  );
     }
 
 

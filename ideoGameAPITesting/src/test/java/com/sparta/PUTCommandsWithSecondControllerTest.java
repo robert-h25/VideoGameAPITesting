@@ -11,18 +11,17 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestDELETECommandsWithFirstController {
-
+public class PUTCommandsWithSecondControllerTest {
     static Response response;
 
     private static List<Integer> ids;
 
     static Response makeResponse(Integer id) {
         return RestAssured
-                .given(Utils.requestSpecificationWithID(id))
+                .given(Utils.requestSpecificationWithIdAndBody(id))
                 .when()
-                    .log().all()
-                    .delete()
+                .log().all()
+                .put()
                 .then()
                 .log().all()
                 .extract().response();
@@ -49,15 +48,4 @@ public class TestDELETECommandsWithFirstController {
         response = makeResponse(ids.get(1));
         MatcherAssert.assertThat(response.getStatusCode(), Matchers.is(404));
     }
-
-    @Test
-    @DisplayName("Test for response body")
-    void testResponseBody(){
-        response = makeResponse(ids.get(0));
-        String responseBody = response.getBody().asString();
-
-       MatcherAssert.assertThat(responseBody, Matchers.is( "Video game deleted")  );
-    }
-
-
 }

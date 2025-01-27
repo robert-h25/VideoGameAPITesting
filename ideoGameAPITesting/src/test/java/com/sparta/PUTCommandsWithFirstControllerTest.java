@@ -11,14 +11,28 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestPUTCommandsWithSecondController {
+public class PUTCommandsWithFirstControllerTest {
+
     static Response response;
 
     private static List<Integer> ids;
 
+
     static Response makeResponse(Integer id) {
         return RestAssured
                 .given(Utils.requestSpecificationWithIdAndBody(id))
+                .when()
+                .log().all()
+                .put()
+                .then()
+                .log().all()
+                .extract().response();
+    }
+
+    static Response makeBadResponse(int id) {
+
+        return RestAssured
+                .given(Utils.requestSpecificationWithIdAndIncorrectBody(id))
                 .when()
                 .log().all()
                 .put()
@@ -43,9 +57,20 @@ public class TestPUTCommandsWithSecondController {
     }
 
     @Test
+    @DisplayName("Sad Path: Test returned status code 400")
+    void getStatusCode400() {
+        response = makeBadResponse(ids.get(0));
+        MatcherAssert.assertThat(response.getStatusCode(), Matchers.is(400));
+    }
+
+    @Test
     @DisplayName("Sad Path: Test returned status code 404")
     void getStatusCode404() {
+
+
         response = makeResponse(ids.get(1));
         MatcherAssert.assertThat(response.getStatusCode(), Matchers.is(404));
     }
+
+
 }
