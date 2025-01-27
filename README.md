@@ -56,7 +56,7 @@ VideoGameAPITesting
     └─README.md  
 ```
 ## What was Tested?
-In this project we found an number of testing areas (Epics) which we derived user stories from. The user Epics identifeied were:
+In this project we found an number of testing areas (Epics) which we derived user stories from. The user Epics identified were:
 ### Authentication
 
 ES-1
