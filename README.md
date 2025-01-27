@@ -52,7 +52,7 @@ git push origin feature/your-feature-name
  ```
 
 ### Open a pull request.
-
+[Create a pull request](https://github.com/robert-h25/VideoGameAPITesting/pulls)
    
 ## Project Structure
 ```
