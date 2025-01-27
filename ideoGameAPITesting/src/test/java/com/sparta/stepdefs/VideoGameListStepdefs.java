@@ -98,12 +98,12 @@ public class VideoGameListStepdefs {
             String category = xmlPath.getString("List.item[" + i + "].@category");
 
             // Assertions to ensure all fields exist
-            assertNotNull(id, "Item at index " + i + " is missing the 'id' element.");
-            assertNotNull(name, "Item at index " + i + " is missing the 'name' element.");
-            assertNotNull(releaseDate, "Item at index " + i + " is missing the 'releaseDate' element.");
-            assertNotNull(reviewScore, "Item at index " + i + " is missing the 'reviewScore' element.");
-            assertNotNull(rating, "Item at index " + i + " is missing the 'rating' element.");
-            assertNotNull(category, "Item at index " + i + " is missing the 'category' attribute.");
+            assertNotNull(id, "Item missing the 'id' element.");
+            assertNotNull(name, "Item missing the 'name' element.");
+            assertNotNull(releaseDate, "Item missing the 'releaseDate' element.");
+            assertNotNull(reviewScore, "Item missing the 'reviewScore' element.");
+            assertNotNull(rating, "Item missing the 'rating' element.");
+            assertNotNull(category, "Item missing the 'category' attribute.");
         }
     }
 
