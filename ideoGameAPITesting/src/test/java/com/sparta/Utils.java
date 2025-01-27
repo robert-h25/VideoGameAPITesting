@@ -225,7 +225,7 @@ public class Utils {
                 .addHeaders(Map.of(
                         "Accept", "application/json",
                         "Content-Type", "application/json",
-                        "Authorization", "Bearer " + BEARER_TOKEN
+                        "Authorization", BEARER_TOKEN
                 ))
                 .setBaseUri(BASE_URL)
                 .setBasePath(POST_PATH_WITH_VIDEOGAME)
