@@ -20,11 +20,31 @@ To run this project, the following technologies are required:
  - Junit (Version 3.8.1)
  - Cucumber (Version 7.18.0)
  - Hamcrest (Version 2.2)
+   
+## How to Contribute
 
-To create your own copy of the code:
+Clone the repository:
 ```
 git clone https://github.com/robert-h25/VideoGameAPITesting.git
 ```
+
+### Create a new branch:
+```
+git checkout -b feature/your-feature-name
+ ```
+
+### Commit your changes:
+```
+git commit -m "Add your message here"
+ ```
+
+### Push to the branch:
+```
+git push origin feature/your-feature-name
+ ```
+
+### Open a pull request.
+
    
 ## Project Structure
 ```
@@ -56,7 +76,7 @@ VideoGameAPITesting
     └─README.md  
 ```
 ## What was Tested?
-In this project we found an number of testing areas (Epics) which we derived user stories from. The user Epics identified were:
+In this project we found an number of testing areas (Epics) which we derived user stories from. The user Epics identifeied were:
 ### Authentication
 
 ES-1
@@ -101,6 +121,7 @@ The breakdown of these epics into user stories was done on the [project board](h
 ## Test Metrics
 
 ## Defects
+We located 2 defects
 
 ## Acknowledgements
 This project was created by:
@@ -109,5 +130,3 @@ This project was created by:
 - ik1g19
 - makduffy
 - Spartan0201
- 
- 
